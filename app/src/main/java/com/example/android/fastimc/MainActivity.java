@@ -19,16 +19,6 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    double height = 0;
-    double weight = 0;
-    double h_imc[] = {20.7, 26.4};
-    double m_imc[] = {19.1, 25.8};
-
-    String gender = "";
-
-    RadioGroup radioGroup;
-    RadioButton male, female;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void submitImc(View view) {
+
+        double height = 0;
+        double weight = 0;
+
+        String gender = "";
+
+        RadioGroup radioGroup;
+        RadioButton male, female;
 
         EditText nameToCard = (EditText)findViewById(R.id.name);
         String inputName = nameToCard.getText().toString();
@@ -82,17 +80,21 @@ public class MainActivity extends AppCompatActivity {
 
                 String imcMessage = createIMCSumary(calculateIMC(height, weight), gender, height, weight, inputName);
 
-                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-                alertDialog.setTitle("Resultado IMC");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
+//                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+//                alertDialog.setTitle("Resultado IMC");
+//                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int which) {
+//                                dialog.dismiss();
+//                            }
+//                        });
+//
+//                alertDialog.setMessage(imcMessage);
+//                alertDialog.show();
 
-                alertDialog.setMessage(imcMessage);
-                alertDialog.show();
+                Intent intent = new Intent(MainActivity.this, Order.class);
+                intent.putExtra("IMC_RESULT",imcMessage);
+                startActivity(intent);
 
             }
 
@@ -122,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
      */
 
     private String createIMCSumary(double imc, String gender, double height, double weight, String addName){
-
+        double h_imc[] = {20.7, 26.4};
+        double m_imc[] = {19.1, 25.8};
         String resultado = "";
 
         if (gender == "Masculino") {

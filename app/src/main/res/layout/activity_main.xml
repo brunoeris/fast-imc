@@ -44,22 +44,6 @@
                 android:text="Sexo"
                 android:layout_gravity="center_horizontal" />
 
-            <!--<RadioGroup-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:layout_marginTop="15dp"-->
-                <!--android:layout_centerHorizontal="true">-->
-                    <!--<RadioButton android:id="@+id/radio_male"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="@string/male"/>-->
-                    <!--<RadioButton android:id="@+id/radio_female"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="@string/female"/>-->
-            <!--</RadioGroup>-->
-
             <RadioGroup
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:id="@+id/radioGroup"
